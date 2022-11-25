@@ -1,0 +1,6 @@
+.item-list-container {
+    margin: 0 auto;
+    min-height: 88vh;
+    display: flex;
+    background-color: #aaa;
+}

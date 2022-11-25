@@ -1,0 +1,33 @@
+.cart-widget {
+    height: 100%;
+    display: flex;
+    margin-right: 32px;
+}
+
+.cart-icon {
+    height: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+.cart-icon:hover {
+    background-color: #666;
+}
+
+.cart-icon a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.icon {
+    margin-right: 16px;
+    font-size: 24px;
+    color: #ddd;
+}
+
+.label {
+    color: #ddd;
+    font-size: 16px;
+}
