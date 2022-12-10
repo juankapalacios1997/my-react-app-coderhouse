@@ -1,4 +1,5 @@
 .nav-container {
+    background-color: #333;
     width: 100%;
     height: 12vh;
     margin: 0 auto;
@@ -13,13 +14,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style-type: none;
 }
 
-.button {
-    height: 100%;
-    border: none;
-    background-color: transparent;
-    margin: 8px;
+.nav-link {
+    padding: 4px 16px;
 }
 
 .button:hover {

@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // import ProductList from "../ProductList/ProductList";
-import { getAllItems } from "../../services/getItems";
-import ItemCard from "../itemCard/ItemCard";
-import './ItemListContainer.css';
+import { getItemsByCategory } from "../../../services/getItems";
+import ItemCard from "../../itemCard/ItemCard";
+import '../ItemListContainer.css';
 
-function ItemListContainer() {
+function CategoryListContainer() {
   const [person, setPerson] = useState('...');
   const [items, setItems] = useState([]);
+  const { categoryId } = useParams();
+
+  console.log(categoryId);
 
   useEffect(() => {
-    getAllItems().then((itemsData) => {
+    getItemsByCategory(categoryId).then((itemsData) => {
       console.log(itemsData);
       setItems(itemsData)
     });
     setPerson("Juan Carlos");
-  }, []);
+  }, [categoryId]);
 
   const handleChange = (event) => {
     const name = event.target.value;
@@ -34,7 +38,7 @@ function ItemListContainer() {
           items.map(item => (
             <ItemCard className="item-card" key={item.id}>
               <h1><NavLink to={`/items/${item.id}`}>{item.name}</NavLink></h1>
-              <img src={item.img} alt={item.name} />
+              <img src={item.img}  alt={item.name}/>
               <p>{item.price}</p>
               <p>{item.category}</p>
             </ItemCard>
@@ -45,4 +49,4 @@ function ItemListContainer() {
   );
 }
 
-export default ItemListContainer;
+export default CategoryListContainer;

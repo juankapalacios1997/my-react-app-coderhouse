@@ -1,0 +1,9 @@
+.item-card {
+    margin: 0 auto;
+    width: 180px;
+    height: 240px;
+    padding: 6px 4px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #eee;
+};
