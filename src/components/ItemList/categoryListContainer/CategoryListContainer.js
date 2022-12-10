@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
-// import ProductList from "../ProductList/ProductList";
 import { getItemsByCategory } from "../../../services/getItems";
 import ItemCard from "../../itemCard/ItemCard";
 import '../ItemListContainer.css';
