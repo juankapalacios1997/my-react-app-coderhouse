@@ -9,7 +9,7 @@ function Cart() {
         </div>
         <div className="cart-list-container">
 
-          <div className="item">
+          <div className="item-a">
 
           </div>
         </div>
