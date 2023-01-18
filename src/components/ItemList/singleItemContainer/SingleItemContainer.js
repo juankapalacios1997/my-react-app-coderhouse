@@ -1,42 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import ProductList from "../ProductList/ProductList";
-import { getItem } from "../../../services/getItems";
+// import { getItem } from "../../../services/getItems";
 import ItemCard from "../../itemCard/ItemCard";
+import { db } from '../../../firebase/config';
+import { doc, getDoc } from 'firebase/firestore';
 import '../ItemListContainer.css';
 
 function SingleItemContainer() {
-  const [person, setPerson] = useState('')
   const [item, setItem] = useState({});
   const { itemId } = useParams();
 
-  console.log(itemId);
+  const itemRef = doc(db, 'items', itemId);
 
   useEffect(() => {
-    getItem(itemId).then((itemData) => {
-      console.log(itemData);
-      setItem(itemData)
-    });
-    setPerson('Juan Carlos')
-  }, [itemId]);
-
-  const handleChange = (event) => {
-    const name = event.target.value;
-    setPerson(name);
-  }
+    getDoc(itemRef)
+    .then((snapshot=> {
+      if(snapshot.exists()) {
+        setItem(({...snapshot.data(), id:snapshot.id}))
+      }
+    }))
+  }, []);
 
   return (
     <div className="item-list-container">
       <div className="greeting-container">
-        <p className="msg" style={{ fontSize: "48px", fontFamily: "Courier New, sans serif", margin: "0 auto", justifySelf: "center", alignSelf: "center" }}>Bienvenido, <span>{person}</span></p>
-        <input className="person-input" type="text" onChange={handleChange} placeholder="Enter the person name" ></input>
+        <h1 className="msg" style={{ fontSize: "32px", fontFamily: "Courier New, sans serif", margin: "0 auto", justifySelf: "center", alignSelf: "center" }}>Producto seleccionado</h1>
+        <h2 style={{ fontSize: "18px", fontFamily: "Courier New, sans serif", margin: "0 auto", justifySelf: "center", alignSelf: "center" }}>Favor de verificar existencia</h2>
       </div>
       <div className="items-container">
         <ItemCard className="item-card">
             <h1>{item.name}</h1>
             <img src={item.img} alt={item.name}/>
             <p>{item.price}</p>
-            <p>{item.category}</p>
+            <p>En stock: <span className={item.amount !== 0 ? 'stock' : 'no-stock'}>{item.amount}</span></p>
+            <button>Add to car</button>
         </ItemCard>
       </div>
     </div>

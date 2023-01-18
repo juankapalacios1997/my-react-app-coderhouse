@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.cart-container {
+    margin: 0 auto;
+    min-height: 85.5vh;
+    padding-bottom: 16px;
+    background-color: #aaa;
+}
+
+.msg-container {
+    padding: 32px 0 0;
+}
+
+.msg-container h1 {
+    font-size: "32px";
+    font-family: "Courier New, sans serif";
+    margin: "0 auto";
+    justify-self: "center";
+    align-self: "center"
+}
+
+.msg-container h2 {
+    font-size: "18px"; 
+    font-family: "Courier New, sans serif"; 
+    margin: "0 auto"; 
+    justify-self: "center"; 
+    align-self: "center"
+}

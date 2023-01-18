@@ -5,16 +5,21 @@ import CategoryListContainer from './components/ItemList/categoryListContainer/C
 // import Posts from './components/API/Posts';
 import './App.css';
 import SingleItemContainer from './components/ItemList/singleItemContainer/SingleItemContainer';
+import Cart from './components/Cart/Cart';
+import Provider from './components/Provider/Provider';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Routes>
-        <Route exact path="/" element={<ItemListContainer />} />
-        <Route exact path="/categories/:categoryId" element={<CategoryListContainer />} />
-        <Route exact path="/items/:itemId" element={<SingleItemContainer />} /> 
-      </Routes>
+      <Provider>
+        <NavBar />
+        <Routes>
+          <Route exact path="/" element={<ItemListContainer />} />
+          <Route exact path="/categories/:categoryId" element={<CategoryListContainer />} />
+          <Route exact path="/items/:itemId" element={<SingleItemContainer />} />
+          <Route exact path="/cart" element={<Cart />} /> 
+        </Routes>
+      </Provider>
     </div>
   );
 }

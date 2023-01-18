@@ -55,3 +55,27 @@
     font-size: 16px;
     color: #333;
 }
+
+.item-card span {
+    font-weight: bold;
+}
+
+.stock {
+    color: green;
+}
+
+.no-stock {
+    color: red;
+}
+
+.add-to-cart {
+    padding: 0 4px;
+    margin: 4px;
+    background-color: #bbb;
+    border: 1px solid #888;
+    border-radius: 4px;
+}
+
+.add-to-cart:hover {
+    background-color: #777;
+}
